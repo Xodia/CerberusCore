@@ -8,22 +8,39 @@
 
 import Foundation
 
-struct Copy: Codable {
-    let key: String
-    let value: Value
+public struct Copy: Codable {
+    public let key: String
+    public let value: Value
+
+    public init(key: String, value: Value) {
+        self.key = key
+        self.value = value
+    }
 }
 
 extension Copy {
     
-    var isSingle: Bool {
-        return !isPlural || isInterpolatedPlural
+    public var isSingle: Bool {
+        return !isPlural && !isInterpolated
+    }
+
+    public var isInterpolated: Bool {
+        return value.parameters?.filter { $0.type == .string }.count ?? 0 > 0
+    }
+
+    public var isPlural: Bool {
+        guard let parameters = value.parameters else {
+            return false
+        }
+
+        let numberOfPluralParameter = parameters.filter { (parameter) -> Bool in
+            return parameter.type == .integer
+        }.count
+
+        return numberOfPluralParameter > 0
     }
     
-    var isPlural: Bool {
-        return value.parameters != nil || isInterpolatedPlural
-    }
-    
-    var isInterpolatedPlural: Bool {
+    public var isInterpolatedPlural: Bool {
         guard let parameters = value.parameters else {
             return false
         }

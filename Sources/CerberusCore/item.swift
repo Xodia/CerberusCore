@@ -8,6 +8,10 @@
 
 import Foundation
 
-struct Item: Codable {
-    let value: String
+public struct Item: Codable {
+    public let value: String
+
+    public init(value: String) {
+        self.value = value
+    }
 }

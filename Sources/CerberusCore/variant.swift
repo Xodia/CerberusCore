@@ -8,12 +8,17 @@
 
 import Foundation
 
-struct Variant: Codable {
-    let variant: String
-    let qualifier: QualifierType
+public struct Variant: Codable {
+    public let variant: String
+    public let qualifier: QualifierType
+
+    public init(variant: String, qualifier: QualifierType) {
+        self.variant = variant
+        self.qualifier = qualifier
+    }
 }
 
-enum QualifierType: String, Codable {
+public enum QualifierType: String, Codable {
     case zero
     case one
     case two

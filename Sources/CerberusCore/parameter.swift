@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ParameterType: String, Codable {
+public enum ParameterType: String, Codable {
     case integer
     case float
     case string
@@ -16,7 +16,7 @@ enum ParameterType: String, Codable {
 
 extension ParameterType {
     
-    var iOS: String {
+    public var iOS: String {
         switch self {
         case .integer:
             return "d"
@@ -27,7 +27,7 @@ extension ParameterType {
         }
     }
     
-    var iOSType: String {
+    public var iOSType: String {
         switch self {
         case .integer:
             return "Int"
@@ -38,7 +38,7 @@ extension ParameterType {
         }
     }
     
-    var android: String {
+    public var android: String {
         switch self {
         case .integer:
             return "d"
@@ -50,8 +50,14 @@ extension ParameterType {
     }
 }
 
-struct Parameter: Codable {
-    let name: String
-    let type: ParameterType
-    let variants: [Variant]
+public struct Parameter: Codable {
+    public let name: String
+    public let type: ParameterType
+    public let variants: [Variant]
+
+    public init(name: String, type: ParameterType, variants: [Variant]) {
+        self.name = name
+        self.type = type
+        self.variants = variants
+    }
 }

@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Value: Codable {
-    let value: String
-    let parameters: [Parameter]?
+public struct Value: Codable {
+    public let value: String
+    public let parameters: [Parameter]?
+
+    public init(value: String, parameters: [Parameter]?) {
+        self.value = value
+        self.parameters = parameters
+    }
 }

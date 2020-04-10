@@ -8,10 +8,18 @@
 
 import Foundation
 
-struct Format: Codable {
-    let parent: String
-    let parentFormat: String
-    let key: String
-    let type: String
-    let variants: [Variant]
+public struct Format: Codable {
+    public let parent: String
+    public let parentFormat: String
+    public let key: String
+    public let type: String
+    public let variants: [Variant]
+
+    public init(parent: String, parentFormat: String, key: String, type: String, variants: [Variant]) {
+        self.parent = parent
+        self.parentFormat = parentFormat
+        self.key = key
+        self.type = type
+        self.variants = variants
+    }
 }

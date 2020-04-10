@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Module: Codable {
-    let module: String
-    let submodules: [Submodule]
+public struct Module: Codable {
+    public let name: String
+    public let submodules: [Submodule]
+
+    public init(name: String, submodules: [Submodule]) {
+        self.name = name
+        self.submodules = submodules
+    }
 }

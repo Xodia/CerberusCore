@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct CopyArray: Codable {
-    let key: String
-    let items: [Item]
+public struct CopyArray: Codable {
+    public let key: String
+    public let items: [Item]
+
+    public init(key: String, items: [Item]) {
+        self.key = key
+        self.items = items
+    }
 }
