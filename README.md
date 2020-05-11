@@ -77,7 +77,7 @@ Copies can be interpolated (copies with parameters) and plural is also handled.
 ```
 {
     "name": "parameter_name",
-    "type": "parameter_type", // integer or float
+    "type": "parameter_type", // integer or float or string
     "variants": [Variant]
 }
 ```
